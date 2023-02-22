@@ -53,6 +53,7 @@ final class TaskCell: UITableViewCell {
 	}
 	
 	@objc private func checkBoxPressed(_ sender: UIButton) {
+		// На сколько это легально в CS?
 		self.delegate?.buttonPressed(at: indexPath)
 		switch task {
 		case .regularTask(let cellTask):
