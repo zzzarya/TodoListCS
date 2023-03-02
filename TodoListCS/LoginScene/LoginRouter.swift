@@ -34,7 +34,7 @@ class LoginRouter: NSObject, LoginRoutingLogic {
 	// MARK: Navigation
 	
 	private func navigateToToDoListController(source: LoginViewController, destination: ToDoListViewController) {
-		source.navigationController?.pushViewController(destination, animated: true)
+		source.show(destination, sender: nil)
 	}
 }
 

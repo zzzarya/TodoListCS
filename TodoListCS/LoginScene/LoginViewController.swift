@@ -39,10 +39,9 @@ class LoginViewController: UIViewController {
 	
 	// MARK: Routing
 	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-	{
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let scene = segue.identifier {
-			let selector = NSSelectorFromString("routeTo\(scene)WithSegue: loginToList")
+			let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
 			if let router = router, router.responds(to: selector) {
 				router.perform(selector, with: segue)
 			}
@@ -70,7 +69,10 @@ extension LoginViewController: ILoginViewController {
 		
 		let action = UIAlertAction(title: "OK", style: .default)
 		alert.addAction(action)
-		present(alert, animated: true, completion: nil)
+		
+		if !viewModel.succes {
+			present(alert, animated: true, completion: nil)
+		}
 	}
 }
 
